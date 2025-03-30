@@ -1,2 +1,2 @@
 # self_projects
-This repo contains the projects done on my own interests.
+This repository contains data engineering projects that I pursued out of personal interest than my organizational work.
