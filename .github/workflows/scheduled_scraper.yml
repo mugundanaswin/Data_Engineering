@@ -5,6 +5,10 @@ on:
     - cron: '0 */12 * * *'   # Every 12 hours
   workflow_dispatch:         # Allow manual runs
 
+permissions:
+  contents: read/write
+  pull-requests: read
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
