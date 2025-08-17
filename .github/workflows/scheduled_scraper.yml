@@ -23,7 +23,7 @@ jobs:
         pip install linkedin-jobs-scraper pandas
 
     - name: Run the LinkedIn job scraper
-      run: python linkedin_scraper.py
+      run: python webscrapping_projects/scheduled/linkedin_lib_de_fil.py
 
     - name: Commit and push results
       run: |
