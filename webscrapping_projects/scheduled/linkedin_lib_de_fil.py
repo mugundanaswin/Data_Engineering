@@ -13,13 +13,12 @@ logging.basicConfig(level=logging.INFO)
 job_listings = []
 
 def on_data(data: EventData):
-    global job_listings
     job_listings.append({
         'timestamp': datetime.utcnow().isoformat(),
+        'job_id': data.job_id,
         'title': data.title,
         'company': data.company,
-        'company_link': data.company_link,
-        'date_text': data.date_text,
+        'date': data.date,
         'link': data.link,
         'description': data.description
     })
@@ -50,8 +49,6 @@ queries = [
         options=QueryOptions(
             locations=['Germany'],
             apply_link=False,
-            skip_promoted_jobs=True,
-            page_offset=2,
             limit=3000,
             filters=QueryFilters(
                 time=TimeFilters.DAY,
@@ -63,22 +60,35 @@ queries = [
 
 scraper.run(queries)
 
-# Filter jobs
+# Filter for "visa" or "relocate"
 filtered_jobs = []
 for job in job_listings:
     if isinstance(job.get('description'), str):
-        description_lower = job['description'].lower()
-        if 'relocat' in description_lower or 'visa' in description_lower:
+        desc = job['description'].lower()
+        if 'relocat' in desc or 'visa' in desc:
             filtered_jobs.append(job)
-
-df = pd.DataFrame(filtered_jobs)
-
-# Append to CSV
-os.makedirs("outputs", exist_ok=True)
-output_file = "outputs/jobs_log.csv"
-if os.path.exists(output_file):
-    df.to_csv(output_file, mode='a', index=False, header=False)
+            
+if len(filtered_jobs) > 0:
+    df_new = pd.DataFrame(filtered_jobs)
+    df_new.drop('description', axis=1, inplace=True)
+    
+    # Output directory & file
+    output_dir = "webscrapping_projects/scheduled/outputs"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, "jobs_log.tsv")
+    
+    # Load existing and remove duplicates
+    if os.path.exists(output_file):
+        df_existing = pd.read_csv(output_file, sep='\t')
+        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        df_combined.sort_values('timestamp', ascending=False, inplace=True)
+        df_combined['job_id'] = df_combined['job_id'].astype(str).str.strip().str.lower()
+        df_combined.drop_duplicates(subset='job_id', keep='first', inplace=True)
+    else:
+        df_combined = df_new
+    
+    # Save updated file
+    df_combined.to_csv(output_file, sep='\t', index=False)
+    print(f"✅ Saved {len(df_new)} new jobs. Total entries: {len(df_combined)}")
 else:
-    df.to_csv(output_file, index=False, header=True)
-
-print(f"✅ Saved {len(df)} filtered jobs to {output_file}")
+    print("No new jobs with sponsorship")
