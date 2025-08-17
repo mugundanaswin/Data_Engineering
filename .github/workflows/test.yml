@@ -1,0 +1,33 @@
+name: test
+
+on:
+  workflow_dispatch:
+jobs:
+  test-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup git user
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - name: Make a trivial change
+        run: |
+          echo "$(date)" >> dummyfile.txt
+          git add dummyfile.txt
+          git commit -m "Test commit $(date)" || echo "No changes to commit"
+      - name: Debug GH_PAT presence
+        run: |
+          if [ -z "$GH_PAT" ]; then
+            echo "GH_PAT is empty!"
+            exit 1
+          else
+            echo "GH_PAT is set"
+          fi
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+      - name: Push change
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git push "https://x-access-token:${GH_PAT}@github.com/mugundanaswin/Data_Engineering.git" HEAD:LinkedIn_auto_scrapper
