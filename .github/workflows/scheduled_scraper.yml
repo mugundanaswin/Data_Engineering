@@ -33,4 +33,4 @@ jobs:
         git config user.email "github-actions@github.com"
         git add webscrapping_projects/scheduled/outputs/jobs_log.csv
         git commit -m "Update job log - $(date -u)" || echo "No changes to commit"
-        git push https://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@github.com/mugundanaswin/Data_Engineering.git HEAD:LinkedIn_auto_scrapper
+        git push https://x-access-token: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@github.com/mugundanaswin/Data_Engineering.git HEAD:LinkedIn_auto_scrapper
