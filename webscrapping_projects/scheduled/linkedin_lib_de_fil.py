@@ -65,26 +65,28 @@ filtered_jobs = []
 for job in job_listings:
     if isinstance(job.get('description'), str):
         desc = job['description'].lower()
-        role = job['title'].lower()
-        if ('relocat' in desc or 'visa' in desc) and ('data' in role):
+        if 'relocat' in desc or 'visa' in desc:
             filtered_jobs.append(job)
-
-df_new = pd.DataFrame(filtered_jobs)
-df_new.drop('description', axis=1, inplace=True)
-
-# Output directory & file
-output_dir = "webscrapping_projects/scheduled/outputs"
-os.makedirs(output_dir, exist_ok=True)
-output_file = os.path.join(output_dir, "jobs_log.tsv")
-
-# Load existing and remove duplicates
-if os.path.exists(output_file):
-    df_existing = pd.read_csv(output_file, sep='\t')
-    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-    df_combined.drop_duplicates(subset='job_id', inplace=True)
+            
+if len(filtered_jobs) > 0:
+    df_new = pd.DataFrame(filtered_jobs)
+    df_new.drop('description', axis=1, inplace=True)
+    
+    # Output directory & file
+    output_dir = "webscrapping_projects/scheduled/outputs"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, "jobs_log.tsv")
+    
+    # Load existing and remove duplicates
+    if os.path.exists(output_file):
+        df_existing = pd.read_csv(output_file, sep='\t')
+        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        df_combined.drop_duplicates(subset='job_id', inplace=True)
+    else:
+        df_combined = df_new
+    
+    # Save updated file
+    df_combined.to_csv(output_file, sep='\t', index=False)
+    print(f"✅ Saved {len(df_new)} new jobs. Total entries: {len(df_combined)}")
 else:
-    df_combined = df_new
-
-# Save updated file
-df_combined.to_csv(output_file, sep='\t', index=False)
-print(f"✅ Saved {len(df_new)} new jobs. Total entries: {len(df_combined)}")
+    print("No new jobs with sponsorship")
