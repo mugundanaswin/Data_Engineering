@@ -83,6 +83,7 @@ if len(filtered_jobs) > 0:
         df_combined = pd.concat([df_existing, df_new], ignore_index=True)
         df_combined.sort_values('timestamp', ascending=False, inplace=True)
         df_combined.drop_duplicates(subset='job_id', keep='first', inplace=True)
+        print(len(df_combined))
     else:
         df_combined = df_new
     
