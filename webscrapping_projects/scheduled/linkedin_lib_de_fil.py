@@ -82,8 +82,11 @@ if len(filtered_jobs) > 0:
         df_existing = pd.read_csv(output_file, sep='\t')
         df_combined = pd.concat([df_existing, df_new], ignore_index=True)
         df_combined.sort_values('timestamp', ascending=False, inplace=True)
+        print("Before duplicate removal:")
+        df_combined.head(15)
         df_combined.drop_duplicates(subset='job_id', keep='first', inplace=True)
-        print(len(df_combined))
+        print("After duplicate removal:")
+        df_combined.head(15)
     else:
         df_combined = df_new
     
