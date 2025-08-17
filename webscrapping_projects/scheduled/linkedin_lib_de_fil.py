@@ -13,9 +13,9 @@ logging.basicConfig(level=logging.INFO)
 job_listings = []
 
 def on_data(data: EventData):
-    global job_listings
     job_listings.append({
         'timestamp': datetime.utcnow().isoformat(),
+        'job_id': data.job_id,
         'title': data.title,
         'company': data.company,
         'company_link': data.company_link,
@@ -63,22 +63,29 @@ queries = [
 
 scraper.run(queries)
 
-# Filter jobs
+# Filter for "visa" or "relocate"
 filtered_jobs = []
 for job in job_listings:
     if isinstance(job.get('description'), str):
-        description_lower = job['description'].lower()
-        if 'relocat' in description_lower or 'visa' in description_lower:
+        desc = job['description'].lower()
+        if 'relocat' in desc or 'visa' in desc:
             filtered_jobs.append(job)
 
-df = pd.DataFrame(filtered_jobs)
+df_new = pd.DataFrame(filtered_jobs)
 
-# Append to CSV
-os.makedirs("outputs", exist_ok=True)
-output_file = "outputs/jobs_log.csv"
+# Output directory & file
+output_dir = "webscrapping_projects/scheduled/outputs"
+os.makedirs(output_dir, exist_ok=True)
+output_file = os.path.join(output_dir, "jobs_log.csv")
+
+# Load existing and remove duplicates
 if os.path.exists(output_file):
-    df.to_csv(output_file, mode='a', index=False, header=False)
+    df_existing = pd.read_csv(output_file)
+    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+    df_combined.drop_duplicates(subset='job_id', inplace=True)
 else:
-    df.to_csv(output_file, index=False, header=True)
+    df_combined = df_new
 
-print(f"✅ Saved {len(df)} filtered jobs to {output_file}")
+# Save updated file
+df_combined.to_csv(output_file, index=False)
+print(f"✅ Saved {len(df_new)} new jobs. Total entries: {len(df_combined)}")
