@@ -19,7 +19,7 @@ def on_data(data: EventData):
         'title': data.title,
         'company': data.company,
         'company_link': data.company_link,
-        'date_text': data.date_text,
+        'date': data.date,
         'link': data.link,
         'description': data.description
     })
@@ -72,20 +72,21 @@ for job in job_listings:
             filtered_jobs.append(job)
 
 df_new = pd.DataFrame(filtered_jobs)
+df_new.drop('description', axis=1, inplace=True)
 
 # Output directory & file
 output_dir = "webscrapping_projects/scheduled/outputs"
 os.makedirs(output_dir, exist_ok=True)
-output_file = os.path.join(output_dir, "jobs_log.csv")
+output_file = os.path.join(output_dir, "jobs_log.tsv")
 
 # Load existing and remove duplicates
 if os.path.exists(output_file):
-    df_existing = pd.read_csv(output_file)
+    df_existing = pd.read_csv(output_file, sep='\t')
     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
     df_combined.drop_duplicates(subset='job_id', inplace=True)
 else:
     df_combined = df_new
 
 # Save updated file
-df_combined.to_csv(output_file, index=False)
+df_combined.to_csv(output_file, sep='\t', index=False)
 print(f"✅ Saved {len(df_new)} new jobs. Total entries: {len(df_combined)}")
