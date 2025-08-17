@@ -18,7 +18,6 @@ def on_data(data: EventData):
         'job_id': data.job_id,
         'title': data.title,
         'company': data.company,
-        'company_link': data.company_link,
         'date': data.date,
         'link': data.link,
         'description': data.description
@@ -66,7 +65,8 @@ filtered_jobs = []
 for job in job_listings:
     if isinstance(job.get('description'), str):
         desc = job['description'].lower()
-        if 'relocat' in desc or 'visa' in desc:
+        role = job['title'].lower()
+        if ('relocat' in desc or 'visa' in desc) and ('data' in role):
             filtered_jobs.append(job)
 
 df_new = pd.DataFrame(filtered_jobs)
