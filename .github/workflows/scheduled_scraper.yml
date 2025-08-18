@@ -39,4 +39,4 @@ jobs:
         git stash pop
         git add webscrapping_projects/scheduled/outputs/jobs_log.tsv
         git commit -m "Update job log - $(date -u)" || echo "No changes to commit"
-        git push https://x-access-token:${GH_PAT}@github.com/mugundanaswin/Data_Engineering.git HEAD:LinkedIn_auto_scrapper
+        git push https://x-access-token:${GH_PAT}@github.com/mugundanaswin/Data_Engineering.git
