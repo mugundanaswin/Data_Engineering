@@ -1,0 +1,48 @@
+# =============================================================================
+# SOURCE DATA CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: Define source tables from FINN operational database
+# =============================================================================
+
+version: 2
+
+sources:
+  # ---------------------------------------------------------------------------
+  # FINN CAR OPERATIONS DATA SOURCE
+  # ---------------------------------------------------------------------------
+  # Description: Core operational data from FINN's car subscription platform
+  # Schema: main (default schema in DuckDB)
+  # Data Refresh: Daily operational updates
+  - name: car_ops
+    description: "Car operations data from FINN subscription platform"
+    schema: main
+    tags: ['source', 'operational_data']
+
+    tables:
+      # -----------------------------------------------------------------------
+      # CUSTOMER MASTER DATA
+      # -----------------------------------------------------------------------
+      - name: customers
+        description: "Customer master data including personal and company information"
+
+      # -----------------------------------------------------------------------
+      # VEHICLE FLEET DATA
+      # -----------------------------------------------------------------------
+      - name: cars
+        description: "Detailed records of individual cars in the FINN fleet"
+
+      # -----------------------------------------------------------------------
+      # SUBSCRIPTION DATA
+      # -----------------------------------------------------------------------
+      - name: subscriptions
+        description: "Customer subscription plans and terms information"
+
+      # -----------------------------------------------------------------------
+      # BILLING DATA
+      # -----------------------------------------------------------------------
+      - name: invoices
+        description: "Header-level data about customer invoices and billing"
+
+      - name: invoice_line_items
+        description: "Line-level details of each invoice including charges and fees"

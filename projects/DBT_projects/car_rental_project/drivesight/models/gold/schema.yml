@@ -1,0 +1,230 @@
+# =============================================================================
+# GOLD LAYER SCHEMA CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: Define schema, tests, and documentation for business-ready gold layer models
+# =============================================================================
+
+version: 2
+
+models:
+  # ---------------------------------------------------------------------------
+  # OPERATIONS DOMAIN - FLEET VOLUME TRACKING
+  # ---------------------------------------------------------------------------
+  # Purpose: Daily tracking of fleet changes for operational planning
+  # Business Use: Fleet capacity planning, delivery logistics optimization
+  # Stakeholders: Operations team, fleet managers
+  - name: gld_cars_infleet_defleet_volume
+    description: Daily volume tracking of cars entering and leaving the fleet
+    config:
+      tags: ["ops", "daily", "fleet_management"]
+    tests:
+      - at_least_one_row
+    columns:
+      - name: date
+        description: Date of the fleet activity
+        tests:
+          - not_null
+          - unique
+
+      - name: infleeted_count
+        description: Number of cars added to fleet on this date
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: defleeted_count
+        description: Number of cars removed from fleet on this date
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: cumulative_fleet_size
+        description: Total number of cars in fleet as of this date
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: net_fleet_change
+        description: Net change in fleet size (infleeted - defleeted) on this date
+        tests:
+          - not_null
+
+      - name: load_date
+        description: Date when the record was loaded into the gold layer
+
+  # ---------------------------------------------------------------------------
+  # OPERATIONS DOMAIN - CITY DELIVERY GROWTH
+  # ---------------------------------------------------------------------------
+  # Purpose: Identify cities with highest week-over-week delivery growth
+  # Business Use: Logistics planning, resource allocation, growth tracking
+  # Stakeholders: Operations team, regional managers, logistics coordinators
+  - name: gld_city_weekly_delivery_increase
+    description: Weekly delivery volume increase by city for operational planning
+    config:
+      tags: ["ops", "weekly", "city_analysis", "logistics"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - city
+            - delivery_week
+      - at_least_one_row
+    columns:
+      - name: city
+        description: City where deliveries occurred
+        tests:
+          - not_null
+
+      - name: delivery_week
+        description: Week of car deliveries
+        tests:
+          - not_null
+
+      - name: current_week_deliveries
+        description: Number of cars delivered in this city during this week
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: previous_week_deliveries
+        description: Number of cars delivered in the previous week
+
+      - name: deliveries_diff
+        description: Difference in deliveries between current and previous week (growth)
+
+      - name: growth_rate
+        description: Percentage growth in deliveries compared to previous week
+        tests:
+          - not_null
+
+      - name: delivery_rank
+        description: Rank of this city within the week based on deliveries
+
+      - name: load_date
+        description: Date when the record was loaded into the gold layer
+
+  # ---------------------------------------------------------------------------
+  # CUSTOMER ACQUISITION DOMAIN - CUSTOMER TYPE SHARE ANALYSIS
+  # ---------------------------------------------------------------------------
+  # Purpose: Analyze customer type distribution by brand and month for acquisition insights
+  # Business Use: Marketing strategy, customer segmentation, brand performance
+  # Stakeholders: Marketing team, sales team, business analysts
+  - name: gld_active_customer_type_share
+    description: Share of active customers by type (B2B vs B2C) per brand and month
+    config:
+      tags: ["customer_acquisition", "daily", "segmentation"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - month
+            - brand
+            - customer_type
+      # - at_least_one_row    # This gold table contains no records based on the current sample data.
+    columns:
+      - name: month
+        description: Month when subscriptions started (YYYY-MM-DD format)
+
+      - name: brand
+        description: Car brand
+
+      - name: customer_type
+        description: Type of customer (b2b, b2c, other)
+
+      - name: active_customers_per_type_car_brand_month
+        description: Number of active customers of this type for this brand/month
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: active_customers_per_car_brand_month
+        description: Total active customers for this brand/month across all customer types
+
+      - name: customer_type_share
+        description: Percentage share of this customer type (0.0 to 1.0)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0.0
+              max_value: 1.0
+              inclusive: true
+
+      - name: num_cars_used
+        description: Number of cars used by customers of this type for this brand/month
+
+      - name: avg_term_months
+        description: Average term length (in months) of subscriptions for this customer type/brand/month
+
+      - name: load_date
+        description: Date when the record was loaded into the gold layer
+
+  # ---------------------------------------------------------------------------
+  # CUSTOMER ACQUISITION DOMAIN - TERM DISTRIBUTION ANALYSIS
+  # ---------------------------------------------------------------------------
+  # Purpose: Analyze customer type preferences across different subscription terms
+  # Business Use: Product strategy, pricing optimization, customer behavior analysis
+  # Stakeholders: Product team, pricing analysts, customer success team
+  - name: gld_customer_type_distribution_per_term
+    description: Distribution of customer types across different subscription terms
+    config:
+      tags: ["customer_acquisition", "daily", "segmentation"]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - term_months
+            - customer_type
+      - at_least_one_row
+    columns:
+      - name: term_months
+        description: Subscription term length in months
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              inclusive: true
+
+      - name: customer_type
+        description: Type of customer (b2b, b2c, other)
+
+      - name: customers_per_type_term
+        description: Number of customers of this type with this term length
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: customers_per_term
+        description: Total customers with this term length across all customer types
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: customer_type_share
+        description: Percentage share of this customer type for this term (0.0 to 1.0)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0.0
+              max_value: 1.0
+              inclusive: true
+
+      - name: subscriptions_per_type_term
+        description: Number of subscriptions of this type with this term length
+
+
+      - name: avg_monthly_rate_per_type_term
+        description: Average monthly rate of subscriptions of this type with this term length
+
+      - name: total_revenue_per_type_term
+        description: Total revenue generated by subscriptions of this type with this term length
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: load_date
+        description: Date when the record was loaded into the gold layer

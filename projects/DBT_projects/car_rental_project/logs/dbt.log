@@ -1,0 +1,240 @@
+[0m21:50:03.553165 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104ac3380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1061ff890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1061ff9d0>]}
+
+
+============================== 21:50:03.558390 | 31a60272-dd21-4805-bef7-fcc55ec569a5 ==============================
+[0m21:50:03.558390 [info ] [MainThread]: Running with dbt=1.10.4
+[0m21:50:03.558709 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/maswin/.dbt', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt init DriveSight', 'send_anonymous_usage_stats': 'True'}
+[0m21:50:03.593393 [debug] [MainThread]: Starter project path: /Users/maswin/data-challenge-manager-obzdni/venv/lib/python3.13/site-packages/dbt/include/starter_project
+[0m21:50:03.622152 [info ] [MainThread]: 
+Your new dbt project "DriveSight" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:50:03.622390 [info ] [MainThread]: Setting up your profile.
+[0m21:50:06.486488 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 2.9948306, "process_in_blocks": "0", "process_kernel_time": 0.259994, "process_mem_max_rss": "114720768", "process_out_blocks": "0", "process_user_time": 0.929663}
+[0m21:50:06.486836 [debug] [MainThread]: Command `dbt init` succeeded at 21:50:06.486774 after 3.00 seconds
+[0m21:50:06.487044 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062d4180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1063529f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106378c00>]}
+[0m21:50:06.487246 [debug] [MainThread]: Flushing usage events
+[0m21:50:07.566973 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:34:09.465135 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112ec3380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114713890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147139d0>]}
+
+
+============================== 22:34:09.470043 | 11b69bb8-0bde-40fe-92c0-30882a3c91e2 ==============================
+[0m22:34:09.470043 [info ] [MainThread]: Running with dbt=1.10.4
+[0m22:34:09.470329 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/maswin/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init DriveSight', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:34:09.513123 [info ] [MainThread]: A project called DriveSight already exists here.
+[0m22:34:09.515995 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.104060955, "process_in_blocks": "0", "process_kernel_time": 0.174801, "process_mem_max_rss": "105496576", "process_out_blocks": "0", "process_user_time": 0.61699}
+[0m22:34:09.516267 [debug] [MainThread]: Command `dbt init` succeeded at 22:34:09.516206 after 0.10 seconds
+[0m22:34:09.516467 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147d8180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147b5eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1145b9150>]}
+[0m22:34:09.516649 [debug] [MainThread]: Flushing usage events
+[0m22:34:10.669217 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:50:25.581601 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107223380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118c17890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118c179d0>]}
+
+
+============================== 22:50:25.587372 | dee6e4bb-3b16-4cea-8f0b-e0835425e0fc ==============================
+[0m22:50:25.587372 [info ] [MainThread]: Running with dbt=1.10.4
+[0m22:50:25.587660 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/maswin/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m22:50:25.587914 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/maswin/data-challenge-manager-obzdni/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m22:50:25.591715 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.059721082, "process_in_blocks": "0", "process_kernel_time": 0.171192, "process_mem_max_rss": "105938944", "process_out_blocks": "0", "process_user_time": 0.651792}
+[0m22:50:25.591951 [debug] [MainThread]: Command `dbt run` failed at 22:50:25.591906 after 0.06 seconds
+[0m22:50:25.592131 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118c06d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118c41eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118ab9150>]}
+[0m22:50:25.592281 [debug] [MainThread]: Flushing usage events
+[0m22:50:26.646388 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:44:21.117707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105377380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10685b9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10685b890>]}
+
+
+============================== 20:44:21.122943 | 5917f211-2dce-4e2b-8de0-3973962a9ec5 ==============================
+[0m20:44:21.122943 [info ] [MainThread]: Running with dbt=1.10.4
+[0m20:44:21.123247 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/maswin/.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt build', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:44:21.123512 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/maswin/data-challenge-manager-obzdni/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:44:21.126847 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 0.08092104, "process_in_blocks": "0", "process_kernel_time": 0.169391, "process_mem_max_rss": "104857600", "process_out_blocks": "0", "process_user_time": 0.646257}
+[0m20:44:21.127141 [debug] [MainThread]: Command `dbt build` failed at 20:44:21.127091 after 0.08 seconds
+[0m20:44:21.127332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10684ad70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106885eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106701150>]}
+[0m20:44:21.127494 [debug] [MainThread]: Flushing usage events
+[0m20:44:22.193188 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:18:07.177597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184A9043CB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184A4EB6FD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184AB1DBC50>]}
+
+
+============================== 20:18:07.203239 | cc885cbf-118e-441e-b795-9c6168c60870 ==============================
+[0m20:18:07.203239 [info ] [MainThread]: Running with dbt=1.10.4
+[0m20:18:07.204198 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init drivesight', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:18:07.232283 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\aswin\.dbt
+[0m20:18:07.234247 [info ] [MainThread]: A project called drivesight already exists here.
+[0m20:18:07.235463 [debug] [MainThread]: Command `dbt init` succeeded at 20:18:07.235280 after 0.24 seconds
+[0m20:18:07.235869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184AB330FC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184AB3483B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000184AB18E8B0>]}
+[0m20:18:07.236330 [debug] [MainThread]: Flushing usage events
+[0m20:18:08.484608 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:20:18.295307 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B5D0D7230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B58F13110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B5F2A3B10>]}
+
+
+============================== 20:20:18.300407 | c9248b04-3eaf-4737-9b0c-2727a9cbabed ==============================
+[0m20:20:18.300407 [info ] [MainThread]: Running with dbt=1.10.4
+[0m20:20:18.301335 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt build', 'send_anonymous_usage_stats': 'True'}
+[0m20:20:18.301901 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:20:18.302983 [debug] [MainThread]: Command `dbt build` failed at 20:20:18.302812 after 0.19 seconds
+[0m20:20:18.303368 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B5E1C2FD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B5E1A7650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025B5E1668B0>]}
+[0m20:20:18.303702 [debug] [MainThread]: Flushing usage events
+[0m20:20:19.360979 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:22:37.461488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B0F3A3230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B0B173110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B1156BB10>]}
+
+
+============================== 12:22:37.469023 | 7257ff5b-148c-444b-ad35-e0eddf9b0cfb ==============================
+[0m12:22:37.469023 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:22:37.470430 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:22:37.501454 [info ] [MainThread]: dbt version: 1.10.4
+[0m12:22:37.502312 [info ] [MainThread]: python version: 3.13.5
+[0m12:22:37.503229 [info ] [MainThread]: python path: C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\venv\Scripts\python.exe
+[0m12:22:37.503882 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:22:37.504534 [info ] [MainThread]: Using profiles dir at C:\Users\aswin\.dbt
+[0m12:22:37.504963 [info ] [MainThread]: Using profiles.yml file at C:\Users\aswin\.dbt\profiles.yml
+[0m12:22:37.505294 [info ] [MainThread]: Using dbt_project.yml file at C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml
+[0m12:22:37.505657 [info ] [MainThread]: Configuration:
+[0m12:22:37.505956 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m12:22:37.506250 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:22:37.506538 [info ] [MainThread]: Required dependencies:
+[0m12:22:37.506837 [debug] [MainThread]: Executing "git --help"
+[0m12:22:37.558377 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:22:37.559140 [debug] [MainThread]: STDERR: "b''"
+[0m12:22:37.560248 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:22:37.561630 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m12:22:37.562772 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m12:22:37.563938 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\Users\aswin\.dbt\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m12:22:37.565390 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml> not found
+
+[0m12:22:37.568838 [debug] [MainThread]: Command `dbt debug` failed at 12:22:37.568323 after 0.28 seconds
+[0m12:22:37.569519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B11604770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B10477530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B10437570>]}
+[0m12:22:37.570177 [debug] [MainThread]: Flushing usage events
+[0m12:22:38.662515 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:34:47.373408 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD2A147230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD25F63110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD2C307B10>]}
+
+
+============================== 12:34:47.378982 | 23d8721e-d517-4c00-90fc-682607c70623 ==============================
+[0m12:34:47.378982 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:34:47.380068 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m12:34:47.409109 [info ] [MainThread]: dbt version: 1.10.4
+[0m12:34:47.409608 [info ] [MainThread]: python version: 3.13.5
+[0m12:34:47.409917 [info ] [MainThread]: python path: C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\venv\Scripts\python.exe
+[0m12:34:47.410217 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:34:47.410575 [info ] [MainThread]: Using profiles dir at C:\Users\aswin\.dbt
+[0m12:34:47.410867 [info ] [MainThread]: Using profiles.yml file at C:\Users\aswin\.dbt\profiles.yml
+[0m12:34:47.411142 [info ] [MainThread]: Using dbt_project.yml file at C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml
+[0m12:34:47.411477 [info ] [MainThread]: Configuration:
+[0m12:34:47.411825 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m12:34:47.412104 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:34:47.412376 [info ] [MainThread]: Required dependencies:
+[0m12:34:47.412672 [debug] [MainThread]: Executing "git --help"
+[0m12:34:47.459089 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:34:47.459641 [debug] [MainThread]: STDERR: "b''"
+[0m12:34:47.460085 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:34:47.460660 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m12:34:47.461400 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m12:34:47.462330 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\Users\aswin\.dbt\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m12:34:47.462991 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml> not found
+
+[0m12:34:47.464912 [debug] [MainThread]: Command `dbt debug` failed at 12:34:47.464586 after 0.28 seconds
+[0m12:34:47.465570 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD2C3A8770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD2B217530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BD2B1D7570>]}
+[0m12:34:47.465968 [debug] [MainThread]: Flushing usage events
+[0m12:34:48.761239 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:38:29.411810 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002328C287230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023288103110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002328E44BB10>]}
+
+
+============================== 12:38:29.416851 | 2e1b74b1-9a9c-4daf-9f66-231c0bcdebee ==============================
+[0m12:38:29.416851 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:38:29.417890 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\All_FILES\\Aji\\Non_company_projects\\finn_challenge\\data-challenge-manager-obzdni\\drivesight\\.dbt\\profiles.yml', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:38:29.443724 [info ] [MainThread]: dbt version: 1.10.4
+[0m12:38:29.444321 [info ] [MainThread]: python version: 3.13.5
+[0m12:38:29.444830 [info ] [MainThread]: python path: C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\venv\Scripts\python.exe
+[0m12:38:29.445263 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:38:29.445768 [info ] [MainThread]: Using profiles dir at C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\drivesight\.dbt\profiles.yml
+[0m12:38:29.446186 [info ] [MainThread]: Using profiles.yml file at C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\drivesight\.dbt\profiles.yml\profiles.yml
+[0m12:38:29.446574 [info ] [MainThread]: Using dbt_project.yml file at C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml
+[0m12:38:29.447070 [info ] [MainThread]: Configuration:
+[0m12:38:29.447477 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m12:38:29.447863 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:38:29.448243 [info ] [MainThread]: Required dependencies:
+[0m12:38:29.448646 [debug] [MainThread]: Executing "git --help"
+[0m12:38:29.484780 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:38:29.485266 [debug] [MainThread]: STDERR: "b''"
+[0m12:38:29.485660 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:38:29.486093 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m12:38:29.486645 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m12:38:29.487229 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\drivesight\.dbt\profiles.yml\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m12:38:29.487883 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml> not found
+
+[0m12:38:29.489004 [debug] [MainThread]: Command `dbt debug` failed at 12:38:29.488841 after 0.26 seconds
+[0m12:38:29.489372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002328E4E8770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002328D357530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002328D317570>]}
+[0m12:38:29.489723 [debug] [MainThread]: Flushing usage events
+[0m12:38:30.810284 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:47:26.788112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D4E7E3230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D4A5D3110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D509ABB10>]}
+
+
+============================== 12:47:26.794636 | 813c4fa8-ec92-4792-a7ad-63cc5701c363 ==============================
+[0m12:47:26.794636 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:47:26.795371 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init drivesight', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:47:26.837615 [info ] [MainThread]: A project called drivesight already exists here.
+[0m12:47:26.838989 [debug] [MainThread]: Command `dbt init` succeeded at 12:47:26.838748 after 0.21 seconds
+[0m12:47:26.839497 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D50A5C3E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D50A33650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015D4F876140>]}
+[0m12:47:26.839946 [debug] [MainThread]: Flushing usage events
+[0m12:47:27.845046 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:47:37.168120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC061D7230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC01FA3110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC0839FB10>]}
+
+
+============================== 12:47:37.173066 | 1cca3f2f-7ae8-482f-90c4-86f197d256e8 ==============================
+[0m12:47:37.173066 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:47:37.174082 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\aswin\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m12:47:37.174685 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\All_FILES\Aji\Non_company_projects\finn_challenge\data-challenge-manager-obzdni\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:47:37.176063 [debug] [MainThread]: Command `dbt run` failed at 12:47:37.175796 after 0.13 seconds
+[0m12:47:37.176489 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC08296FD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC072A7650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EC072668B0>]}
+[0m12:47:37.176844 [debug] [MainThread]: Flushing usage events
+[0m12:47:38.113103 [debug] [MainThread]: An error was encountered while trying to flush usage events
