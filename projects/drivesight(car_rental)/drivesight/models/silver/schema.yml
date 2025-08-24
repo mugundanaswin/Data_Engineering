@@ -1,0 +1,163 @@
+# =============================================================================
+# SILVER LAYER SCHEMA CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: Define schema, tests, and documentation for cleaned silver layer models
+# =============================================================================
+
+version: 2
+
+models:
+  # ---------------------------------------------------------------------------
+  # CUSTOMER DIMENSION - SILVER LAYER
+  # ---------------------------------------------------------------------------
+  # Purpose: Cleansed and standardized customer master data
+  # Source: Bronze layer customers with data quality improvements
+  # Business Use: Customer segmentation, B2B/B2C analysis, geographic analysis
+  - name: slv_customers
+    description: Cleansed customer dimension data for analysis
+    tests:
+      - at_least_one_row
+    columns:
+      - name: customer_id
+        description: Unique identifier for each customer (Primary Key)
+        tests: [unique, not_null]
+
+      - name: customer_type
+        description: Type of customer (B2B, B2C, or Other)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['b2b', 'b2c', 'other']
+
+      - name: company_name
+        description: Name of the company for B2B customers
+        tests:
+          - not_null:
+              where: customer_type = 'b2b'
+
+      - name: city
+        description: City where the customer is located
+
+      - name: zip_code
+        description: Zip code of the customer's address
+
+      - name: load_date
+        description: Date when the record was loaded into the silver layer
+
+      - name: rep_date
+        description: Date when the record represents the data (reporting date)
+
+  # ---------------------------------------------------------------------------
+  # CAR DIMENSION - SILVER LAYER
+  # ---------------------------------------------------------------------------
+  # Purpose: Enriched car fleet data with calculated fields and standardization
+  # Source: Bronze layer cars with engine type standardization and fleet metrics
+  # Business Use: Fleet management, utilization analysis, engine type reporting
+  - name: slv_cars
+    description: Enriched car dimension with engine and registration info
+    tests:
+      - at_least_one_row
+    columns:
+      - name: car_id
+        description: Unique identifier for each car (Primary Key)
+        tests: [unique, not_null]
+
+      - name: brand
+        description: Car brand
+        tests: [not_null]
+
+      - name: model
+        description: Car model
+
+      - name: engine_type
+        description: Type of engine the car uses (standardized values)
+        tests:
+          - accepted_values:
+              values: ['electric', 'petrol', 'diesel', 'hybrid', 'gasoline', 'other']
+
+      - name: registration_date
+        description: Date the car was registered and added to fleet
+
+      - name: deregistration_date
+        description: Date the car was deregistered and removed from fleet (nullable)
+
+      - name: fleet_duration_days
+        description: Number of days the car has been in the fleet (calculated field)
+
+      - name: is_active
+        description: Flag indicating if the car is currently active in fleet
+
+      - name: load_date
+        description: Date when the record was loaded into the silver layer
+
+      - name: rep_date
+        description: Date when the record represents the data (reporting date)
+
+  # ---------------------------------------------------------------------------
+  # SUBSCRIPTION FACT TABLE - SILVER LAYER
+  # ---------------------------------------------------------------------------
+  # Purpose: Subscription transactions linking customers to cars with terms and pricing
+  # Source: Bronze layer subscriptions with term standardization and date calculations
+  # Business Use: Revenue analysis, subscription lifecycle tracking, customer behavior
+  - name: slv_subscriptions
+    description: Subscription fact table mapping customers to cars with duration and rates
+    tests:
+      - at_least_one_row
+    columns:
+      - name: subscription_id
+        description: Unique identifier for each subscription (Primary Key)
+        tests: [unique, not_null]
+
+      - name: customer_id
+        description: Customer ID associated with the subscription (Foreign Key to slv_customers)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('slv_customers')
+              field: customer_id
+
+      - name: car_id
+        description: Car ID associated with the subscription (Foreign Key to slv_cars)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('slv_cars')
+              field: car_id
+
+      - name: created_at
+        description: Date the subscription was created
+        tests: [not_null]
+
+      - name: start_date
+        description: Date the subscription started (nullable for future subscriptions)
+
+      - name: end_date
+        description: Date the subscription ended (calculated from start_date + term_months)
+
+      - name: start_month
+        description: Month the subscription started (YYYY-MM-DD format)
+
+      - name: start_week
+        description: Week the subscription started (YYYY-WW format)
+
+      - name: term_months
+        description: Term of the subscription in months (converted from text)
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "{{ column_name }} >= 0"
+
+      - name: monthly_rate
+        description: Monthly subscription rate charged to customer
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "{{ column_name }} >= 0"
+
+      - name: is_active
+        description: Flag indicating if the subscription is currently active
+
+      - name: load_date
+        description: Date when the record was loaded into the silver layer
+
+      - name: rep_date
+        description: Date when the record represents the data (reporting date)

@@ -1,0 +1,107 @@
+# =============================================================================
+# DBT PROJECT CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: Data pipeline for customer acquisition and fleet operations analysis
+# =============================================================================
+
+# Project identity
+name: 'drivesight'
+version: '1.0.0'
+profile: 'drivesight'
+
+# =============================================================================
+# FILE PATH CONFIGURATIONS
+# =============================================================================
+# Specify where dbt should look for different types of files
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+docs-paths: ["docs"]
+
+# =============================================================================
+# CLEANUP CONFIGURATION
+# =============================================================================
+# Directories to be removed by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# =============================================================================
+# MODEL CONFIGURATIONS
+# =============================================================================
+# Configure materialization, schema, and behavior for all model layers
+models:
+  drivesight:
+    # Global model defaults
+    +schema: main
+    +docs:
+      +show: true
+
+    # -------------------------------------------------------------------------
+    # BRONZE LAYER - Raw Data Ingestion
+    # -------------------------------------------------------------------------
+    # Purpose: Ingest raw data from source systems with minimal transformation
+    bronze:
+      +schema: main_bronze
+      +materialized: incremental
+      +incremental_strategy: delete+insert
+      +unique_key: 'id'
+      +partition_by: 'load_date'
+      +tags: ['bronze', 'raw_data', 'daily_refresh']
+      +on_schema_change: 'append_new_columns'
+
+    # -------------------------------------------------------------------------
+    # SILVER LAYER - Cleaned and Standardized Data
+    # -------------------------------------------------------------------------
+    # Purpose: Apply data quality rules, standardization, and basic transformations
+    silver:
+      +schema: main_silver
+      +materialized: table
+      +tags: ['silver', 'cleaned_data', 'daily_refresh', 'ops', 'customer_acquisition']
+      +on_schema_change: fail
+
+    # -------------------------------------------------------------------------
+    # GOLD LAYER - Business-Ready Analytics
+    # -------------------------------------------------------------------------
+    # Purpose: Create aggregated, business-ready models for analytics and reporting
+    gold:
+      +schema: main_gold
+      +tags: ['gold', 'analytical_data']
+      +on_schema_change: fail
+      
+      # Operations Domain Models
+      operations:
+        +tags: ["ops", "operations"]
+        +meta:
+          owner: "operations_team"
+          business_definition: "Track daily fleet changes and identify cities with the highest growth in car deliveries to optimize fleet management and logistics"
+      
+      # Customer Acquisition Domain Models
+      customer_acquisition:
+        +tags: ["customer_acquisition", "analytics"]
+        +meta:
+          owner: "analytics_team"
+          business_definition: "Analyze customer types and their distribution across different subscription terms to inform marketing and sales strategies"
+
+# =============================================================================
+# TEST CONFIGURATIONS
+# =============================================================================
+# Configure test behavior and failure handling
+tests:
+  drivesight:
+    +store_failures: true
+    +warn_if: ">100"
+
+# =============================================================================
+# SNAPSHOT CONFIGURATIONS
+# =============================================================================
+# Configure slowly changing dimensions (SCD) for historical data tracking
+snapshots:
+  drivesight:
+    silver:
+      +schema: silver_snapshots
+      +tags: ['silver', 'cleaned_historical_data', 'scd']

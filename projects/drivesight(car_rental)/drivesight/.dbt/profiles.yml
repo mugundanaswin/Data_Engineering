@@ -1,0 +1,41 @@
+# =============================================================================
+# DBT PROFILES CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: Database connection profiles for different environments
+# =============================================================================
+
+drivesight:
+  # Default target environment (can be overridden with --target flag)
+  target: "{{ env_var('ENV', 'dev') }}"
+
+  outputs:
+    # -------------------------------------------------------------------------
+    # DEVELOPMENT ENVIRONMENT
+    # -------------------------------------------------------------------------
+    # Purpose: Local development and testing
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_DEV_PATH', '../../FINN.duckdb') }}"
+      catalog: "{{ env_var('DBT_CATALOG_DEV', 'FINN') }}"
+      threads: 4
+
+    # -------------------------------------------------------------------------
+    # STAGING ENVIRONMENT
+    # -------------------------------------------------------------------------
+    # Purpose: Pre-production testing and validation
+    stg:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_STG_PATH', './data/stg.duckdb') }}"
+      catalog: "{{ env_var('DBT_CATALOG_STG', 'FINN') }}"
+      threads: 4
+
+    # -------------------------------------------------------------------------
+    # PRODUCTION ENVIRONMENT
+    # -------------------------------------------------------------------------
+    # Purpose: Production data processing and analytics
+    prod:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PROD_PATH', './data/prod.duckdb') }}"
+      catalog: "{{ env_var('DBT_CATALOG_PROD', 'FINN') }}"
+      threads: 16

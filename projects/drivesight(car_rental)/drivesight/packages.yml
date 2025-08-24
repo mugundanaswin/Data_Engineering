@@ -1,0 +1,15 @@
+# =============================================================================
+# DBT PACKAGES CONFIGURATION
+# =============================================================================
+# Project: DriveSight - FINN Car Subscription Analytics
+# Purpose: External package dependencies for enhanced dbt functionality
+# =============================================================================
+
+packages:
+  # -------------------------------------------------------------------------
+  # DBT UTILS - Essential utility macros and tests
+  # -------------------------------------------------------------------------
+  # Purpose: Provides cross-database macros, tests, and utility functions
+  # Documentation: https://github.com/dbt-labs/dbt-utils
+  - package: dbt-labs/dbt_utils
+    version: [">=1.0.0", "<2.0.0"]
